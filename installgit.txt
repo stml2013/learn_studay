@@ -30,8 +30,11 @@ git config --global user.email "wypsmtl2013@gmail.com"
   git checkout -- file
 10 用命令git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区
   git reset HEAD file
-
-
+11 恢复误删文件
+  git rm test.txt
+  恢复
+  git reset head 
+  git checkout -- test.txt
 
 
 
