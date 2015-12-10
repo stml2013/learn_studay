@@ -24,4 +24,6 @@ git config --global user.email "wypsmtl2013@gmail.com"
 7 查看命令历史
   git reflog 
   这个命令也可以用来恢复版本
+8 查看工作区与版本库里面的区别
+  git diff HEAD -- filename
   
