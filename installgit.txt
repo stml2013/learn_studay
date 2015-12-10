@@ -35,6 +35,15 @@ git config --global user.email "wypsmtl2013@gmail.com"
   恢复
   git reset head 
   git checkout -- test.txt
+  
+12 如何用git创立远程仓库
+   1 首先在github 上创建一个仓库：https://github.com/stml2013/learn_studay.git
+   2 然后用git remote 命令
+     git remote add mylocalresposityname https://github.com/stml2013/learn_studay.git
+	 这时候可能要验证：输入github登陆名和密码
+   3 把版本仓库的文件上传至远程仓库
+     git push -u mylocalresposityname master
+   
 
 
 
