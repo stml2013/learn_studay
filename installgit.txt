@@ -26,4 +26,15 @@ git config --global user.email "wypsmtl2013@gmail.com"
   这个命令也可以用来恢复版本
 8 查看工作区与版本库里面的区别
   git diff HEAD -- filename
-  
+9 丢弃工作区的修改
+  git checkout -- file
+10 用命令git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区
+  git reset HEAD file
+
+
+
+
+
+
+
+
