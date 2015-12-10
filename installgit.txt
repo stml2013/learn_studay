@@ -19,4 +19,9 @@ git config --global user.email "wypsmtl2013@gmail.com"
   git commit -m "修改内容"  
 5 版本恢复
   git reset --hard 版本id
+6 查看日志
+  git log [--pretty=oneline]
+7 查看命令历史
+  git reflog 
+  这个命令也可以用来恢复版本
   
