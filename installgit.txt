@@ -1,0 +1,22 @@
+1 安装git
+apt-get install git
+2 设置用户名和邮箱
+git config --global user.name "smtl2013"
+git config --global user.email "wypsmtl2013@gmail.com"
+3 创建本地仓库
+  mkdir d:/gitrpy
+  cd d:/gitrpy
+  git init             //会在文件中生成一个.git目录
+4 添加文件
+  在目录中创建一个readme.txt
+  git add readme.txt
+  git commit -m "修改内容"
+5 查看更新状态
+  git status
+  如果有跟新没提交到本地库
+  就执行 
+  git add filename
+  git commit -m "修改内容"  
+5 版本恢复
+  git reset --hard 版本id
+  
