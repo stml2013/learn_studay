@@ -1,0 +1,100 @@
+1 安装git
+apt-get install git
+2 设置用户名和邮箱
+git config --global user.name "smtl2013"
+git config --global user.email "wypsmtl2013@gmail.com"
+3 创建本地仓库
+  mkdir d:/gitrpy
+  cd d:/gitrpy
+  git init             //会在文件中生成一个.git目录
+4 添加文件
+  在目录中创建一个readme.txt
+  git add readme.txt
+  git commit -m "修改内容"
+5 查看更新状态
+  git status
+  如果有跟新没提交到本地库
+  就执行 
+  git add filename
+  git commit -m "修改内容"  
+5 版本恢复
+  git reset --hard 版本id
+6 查看日志
+  git log [--pretty=oneline]
+7 查看命令历史
+  git reflog 
+  这个命令也可以用来恢复版本
+8 查看工作区与版本库里面的区别
+  git diff HEAD -- filename
+9 丢弃工作区的修改
+  git checkout -- file
+10 用命令git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区
+  git reset HEAD file
+11 恢复误删文件
+  git rm test.txt
+  恢复
+  git reset head 
+  git checkout -- test.txt
+  
+12 如何用git创立远程仓库
+   1 首先在github 上创建一个仓库：https://github.com/stml2013/learn_studay.git
+   2 然后用git remote 命令
+     git remote add mylocalresposityname https://github.com/stml2013/learn_studay.git
+	 这时候可能要验证：输入github登陆名和密码
+   3 把版本仓库的文件上传至远程仓库
+     git push -u mylocalresposityname master
+13 查看仓库分支
+  git branch -a
+  git branch -r 查看远程分支
+14 创建本地分支
+  git branch [branchname]
+15 创建远程分支
+   就是把本地分支push到远程仓库里面
+  git push origin [branchname]
+16 切换分支
+  git checkout branchname
+17  把修改提交到远程分支上
+  git add filename
+  git commit -m "msg"
+  git push --set-upstream origin branchname
+18 合并分支到本地的master
+  git checkout master 切换到master
+  git merge branchname 合并完成18 合并分支到本地的master
+    git checkout master 切换到master
+    git merge branchname 合并完成18 合并分支到本地的master
+      git checkout master 切换到master
+      git merge branchname 合并完成18 合并分支到本地的master
+        git checkout master 切换到master
+        git merge branchname 合并完成18 合并分支到本地的master
+          git checkout master 切换到master
+          git merge branchname 合并完成18 合并分支到本地的master
+            git checkout master 切换到master
+            git merge branchname 合并完成18 合并分支到本地的master
+              git checkout master 切换到master
+              git merge branchname 合并完成18 合并分支到本地的master
+                git checkout master 切换到master
+                git merge branchname 合并完成18 合并分支到本地的master
+                  git checkout master 切换到master
+                  git merge branchname 合并完成18 合并分支到本地的master
+                    git checkout master 切换到master
+                    git merge branchname 合并完成18 合并分支到本地的master
+                      git checkout master 切换到master
+                      git merge branchname 合并完成18 合并分支到本地的master
+                        git checkout master 切换到master
+                        git merge branchname 合并完成18 合并分支到本地的master
+                          git checkout master 切换到master
+                          git merge branchname 合并完成18 合并分支到本地的master
+                            git checkout master 切换到master
+                            git merge branchname 合并完成18 合并分支到本地的master
+                              git checkout master 切换到master
+                              git merge branchname 合并完成18 合并分支到本地的master
+                                git checkout master 切换到master
+                                git merge branchname 合并完成18 合并分支到本地的master
+                                  git checkout master 切换到master
+                                  git merge branchname 合并完成18 合并分支到本地的master
+                                    git checkout master 切换到master
+                                    git merge branchname 合并完成
+
+
+
+
