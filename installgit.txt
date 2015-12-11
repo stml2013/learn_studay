@@ -46,13 +46,15 @@ git config --global user.email "wypsmtl2013@gmail.com"
 13 查看仓库分支
   git branch -a
   git branch -r 查看远程分支
-14 创建本地分支
+14 创建本地分支、删除本地分支
   git branch [branchname]
+  git branch -d [branchname]
 15 创建远程分支
    就是把本地分支push到远程仓库里面
   git push origin [branchname]
 16 切换分支
   git checkout branchname
+  git checkout -b branchname 创建+切换分支
 17  把修改提交到远程分支上
   git add filename
   git commit -m "msg"
@@ -62,5 +64,5 @@ git config --global user.email "wypsmtl2013@gmail.com"
   git merge branchname 合并完成
 19 克隆远程仓库的一个分支
   git clone remoteurl -b branchname savepath
-
+20 
 
