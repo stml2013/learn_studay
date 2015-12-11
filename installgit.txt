@@ -59,7 +59,8 @@ git config --global user.email "wypsmtl2013@gmail.com"
   git push --set-upstream origin branchname
 18 合并分支到本地的master
   git checkout master 切换到master
-  git merge branchname 合并完成18
-
+  git merge branchname 合并完成
+19 克隆远程仓库的一个分支
+  git clone remoteurl -b branchname savepath
 
 
