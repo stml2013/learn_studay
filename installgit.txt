@@ -64,5 +64,10 @@ git config --global user.email "wypsmtl2013@gmail.com"
   git merge branchname 合并完成
 19 克隆远程仓库的一个分支
   git clone remoteurl -b branchname savepath
-20 
-
+20 查看合并
+   git log --graph --pretty=oneline --abbrev-commit 命令，查看一下分支合并
+21 普通合并
+  git checkout master
+  git merge branchname --on-ff -m "merge with no-ff"
+  注，合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支记录，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并
+  
