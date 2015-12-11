@@ -57,8 +57,9 @@ git config --global user.email "wypsmtl2013@gmail.com"
   git add filename
   git commit -m "msg"
   git push --set-upstream origin branchname
-
-
+18 合并分支到本地的master
+  git checkout master 切换到master
+  git merge branchname 合并完成18
 
 
 
