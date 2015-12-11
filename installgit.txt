@@ -43,7 +43,8 @@ git config --global user.email "wypsmtl2013@gmail.com"
 	 这时候可能要验证：输入github登陆名和密码
    3 把版本仓库的文件上传至远程仓库
      git push -u mylocalresposityname master
-   
+13 查看仓库分支
+  git branch -a
 
 
 
