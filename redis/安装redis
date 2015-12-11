@@ -1,0 +1,36 @@
+1、先去官网找个最新稳定版本的下载链接 http://redis.io/download，目前最新的是2.8.8，好吧就它了，然后复制其链接。
+cd /tmp  
+wget http://download.redis.io/releases/redis-2.8.8.tar.gz  
+cd redis-2.8.8  
+make  
+make install  
+默认安装到 /usr/local/bin目录下
+
+2、设置配置文件路径和服务
+在解压出的目录中已经有一个配置文件redis.conf了，在utils文件夹中提供了redis_init_script
+sudo mkdir /etc/redis  
+sudo cp redis.conf /etc/redis/6379.conf  
+cd utils  
+sudo cp redis_init_script /etc/init.d/redis_6379   
+redis_init_script文件中默认的配置文件路径是 /etc/redis/${REDISPORT}.conf，我就不修改它了，保持这个国际惯例~
+
+3、修改配置文件
+在修改配置文件前，先建一个目录
+sudo mkdir /var/redis/6379  
+sudo vim /etc/redis/6379.conf  
+需要修改的项如下：
+设置服务为后台程序：daemonize yes
+设置日志文件路径：logfile "/var/log/redis_6379.log"
+设置数据库文件路径：dir "/var/redis/6379"
+
+4、检查，然后hello world下
+sudo service redis_6379 start  
+redis_cli  
+>set hello world  
+>OK  
+>get hello  
+"world"  
+检查如下内容：
+去/var/redis/6379/dump.rdb是否存在
+查看/var/log/redis_6379.log是否有内容
+OK！

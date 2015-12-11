@@ -1,0 +1,52 @@
+redis主从数据库配置
+第一 先配置主数据库
+主数据库配置：见master.conf 
+从数据库配置：见slave.conf
+注意：
+从数据库主要配置项：slaveof <masterip> <masterport>（主数据库ip port）
+主数据库和从数据库的dir不要放在同一个地方（在一台电脑上）：
+主数据库：
+dir：dir /media/wyp13/07a57c88-fbe4-4816-9754-616536291a44/wyp13/redis/6379
+port：6379
+logfile： /media/wyp13/07a57c88-fbe4-4816-9754-616536291a44/wyp13/redis/log/log
+主数据库不做持久化：
+appendonly： no
+从数据库：
+dir：dir /media/wyp13/07a57c88-fbe4-4816-9754-616536291a44/wyp13/redis/slave
+port：6380
+logfile： /media/wyp13/07a57c88-fbe4-4816-9754-616536291a44/wyp13/redis/slave/log/log
+从数据库做持久化：
+appendonly： yes
+slaveof： 127.0.0.1 6379 #主数据库的ip：port
+第二 启动
+1 先启动主数据库
+redis-server /path/to/master.conf
+2 在启动从数据库
+redis-server /path/to/salve.conf
+3 到从数据库的log里面查看日志如下：
+7465:S 09 Dec 15:15:05.536 * The server is now ready to accept connections on port 6380
+7465:S 09 Dec 15:15:05.536 * Connecting to MASTER 127.0.0.1:6379
+7465:S 09 Dec 15:15:05.536 * MASTER <-> SLAVE sync started
+7465:S 09 Dec 15:15:05.536 * Non blocking connect for SYNC fired the event.
+7465:S 09 Dec 15:15:05.536 * Master replied to PING, replication can continue...
+7465:S 09 Dec 15:15:05.537 * Partial resynchronization not possible (no cached master)
+7465:S 09 Dec 15:15:05.541 * Full resync from master: 0d56a130b0a0043843991451be7164b5287b5ff4:1
+7465:S 09 Dec 15:15:05.633 * MASTER <-> SLAVE sync: receiving 55 bytes from master
+7465:S 09 Dec 15:15:05.633 * MASTER <-> SLAVE sync: Flushing old data
+7465:S 09 Dec 15:15:05.633 * MASTER <-> SLAVE sync: Loading DB in memory
+7465:S 09 Dec 15:15:05.633 * MASTER <-> SLAVE sync: Finished with success
+最后一行说明备份主数据库成功
+第三 测试
+1 在主数据库中写入数据：
+ redis-cli -p 6379
+>set hello hello,world
+>ok
+2 在从数据库中读取数据：
+redis-cli -p 6380
+>get hello
+1)hello,world
+3 在从数据库中写数据：
+> set money 100000000
+(error) READONLY You can't write against a read only slave.
+说明从数据库只能读取数据，不能写数据
+wyp123www
