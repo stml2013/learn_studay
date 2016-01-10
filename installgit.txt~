@@ -1,0 +1,81 @@
+1 安装git
+apt-get install git
+2 设置用户名和邮箱
+git config --global user.name "smtl2013"
+git config --global user.email "wypsmtl2013@gmail.com"
+3 创建本地仓库
+  mkdir d:/gitrpy
+  cd d:/gitrpy
+  git init             //会在文件中生成一个.git目录
+4 添加文件
+  在目录中创建一个readme.txt
+  git add readme.txt
+  git commit -m "修改内容"
+5 查看更新状态
+  git status
+  如果有跟新没提交到本地库
+  就执行 
+  git add filename
+  git commit -m "修改内容"  
+5 版本恢复
+  git reset --hard 版本id
+6 查看日志
+  git log [--pretty=oneline]
+7 查看命令历史
+  git reflog 
+  这个命令也可以用来恢复版本
+8 查看工作区与版本库里面的区别
+  git diff HEAD -- filename
+9 丢弃工作区的修改
+  git checkout -- file
+10 用命令git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区
+  git reset HEAD file
+11 恢复误删文件
+  git rm test.txt
+  恢复
+  git reset head 
+  git checkout -- test.txt
+  
+12 如何用git创立远程仓库
+   1 首先在github 上创建一个仓库：https://github.com/stml2013/learn_studay.git
+   2 然后用git remote 命令
+     git remote add mylocalresposityname https://github.com/stml2013/learn_studay.git
+	 这时候可能要验证：输入github登陆名和密码
+   3 把版本仓库的文件上传至远程仓库
+     git push -u mylocalresposityname master
+13 查看仓库分支
+  git branch -a
+  git branch -r 查看远程分支
+14 创建本地分支、删除本地分支
+  git branch [branchname]
+  git branch -d [branchname]
+15 创建远程分支
+   就是把本地分支push到远程仓库里面
+  git push origin [branchname]
+16 切换分支
+  git checkout branchname
+  git checkout -b branchname 创建+切换分支
+17  把修改提交到远程分支上
+  git add filename
+  git commit -m "msg"
+  git push --set-upstream origin branchname
+18 合并分支到本地的master
+  git checkout master 切换到master
+  git merge branchname 合并完成
+19 克隆远程仓库的一个分支
+  git clone remoteurl -b branchname savepath
+20 查看合并
+   git log --graph --pretty=oneline --abbrev-commit 命令，查看一下分支合并
+21 普通合并
+  git checkout master
+  git merge branchname --on-ff -m "merge with no-ff"
+  注，合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支记录，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并
+ 
+22 fatal: 远程 origin 已经存在。
+   git remote add origin https://github.com/wyp2013/learnjava.git 报错
+   git remote rm origin 删除这个仓库
+23 提示：更新被拒绝，因为您当前分支的最新提交落后于其对应的远程分支。
+   提示：再次推送前，先与远程变更合并（如 'git pull ...'）。详见
+   解决方法：
+   1 git pull 先拉去远程仓库的代码
+   2 git merge origin/master -m "merge"
