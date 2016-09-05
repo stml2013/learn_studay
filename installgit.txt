@@ -70,4 +70,13 @@ git config --global user.email "wypsmtl2013@gmail.com"
   git checkout master
   git merge branchname --on-ff -m "merge with no-ff"
   注，合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支记录，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并
-  
+ 
+22 fatal: 远程 origin 已经存在。
+   git remote add origin https://github.com/wyp2013/learnjava.git 报错
+   git remote rm origin 删除这个仓库
+23 提示：更新被拒绝，因为您当前分支的最新提交落后于其对应的远程分支。
+   提示：再次推送前，先与远程变更合并（如 'git pull ...'）。详见
+   解决方法：
+   1 git pull 先拉去远程仓库的代码
+   2 git merge origin/master -m "merge"
+   3 git push
